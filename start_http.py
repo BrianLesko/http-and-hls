@@ -6,7 +6,9 @@ import http.server
 import socketserver
 import cv2
 import io
+import sys
 
+IP = sys.argv[1]
 PORT = 8000
 
 class VideoStreamHandler(http.server.BaseHTTPRequestHandler):
@@ -37,6 +39,6 @@ class VideoStreamHandler(http.server.BaseHTTPRequestHandler):
             cap.release()
 
 Handler = VideoStreamHandler
-with http.server.ThreadingHTTPServer(("192.168.129.65", PORT), Handler) as httpd:
+with http.server.ThreadingHTTPServer((IP, PORT), Handler) as httpd:
     print("Serving at port", PORT)
     httpd.serve_forever()
