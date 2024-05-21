@@ -4,7 +4,7 @@
 
 # 2. Run ffmpeg to create the HLS files
 
-ffmpeg -i http://127.0.0.1:8000 -y \
+ffmpeg -i http://192.168.129.65:8000 -y \
 -c:v libx264 \
 -preset veryfast \
 -profile:v baseline \

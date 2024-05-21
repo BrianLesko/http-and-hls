@@ -1,5 +1,6 @@
 #!/bin/bash
-
-python3 http.py &
+cd /home/lesko/http-and-hls
+source my_env/bin/activate
+python3 start_http.py &
 hls.sh &
-start_docker.sh
+docker start hls0
