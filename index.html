@@ -3,21 +3,27 @@
   <head>
     <title>Live Video Feed</title>
     <style>
-      /* Adjust video size */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
       #video {
-        max-width: 100%; /* Ensure the video doesn't exceed the width of its co>
-        height: auto; /* Maintain aspect ratio */
+        max-width: 100%;
       }
     </style>
   </head>
   <body>
     <video id="video" autoplay="true" controls="controls"></video>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="node_modules/hls.js/dist/hls.min.js"></script> <!-- Local hls.js file -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> --> <!-- CDN hls.js file -->
     <script>
       if (Hls.isSupported()) {
         var video = document.getElementById('video');
         var hls = new Hls();
-        // bind them together
         hls.attachMedia(video);
         hls.on(Hls.Events.MEDIA_ATTACHED, function () {
           console.log("video and hls.js are now bound together !");
@@ -31,6 +37,3 @@
     </script>
   </body>
 </html>
-
-
-

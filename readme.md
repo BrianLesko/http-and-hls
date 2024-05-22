@@ -12,6 +12,10 @@ Change how much footage youd like to save. Change the size of video chunks used.
 This code uses the following libraries:
 - `ffmpeg`: for handling the live stream to video chunking HLS protocol
 - `docker`: for serving the generated files and hosting the html viewer with nginx
+- `hls.js`: for serving the index.m3u8 file using html 5
+```bash
+npm install hls.js
+```
 
 &nbsp;
 
