@@ -9,7 +9,7 @@ import io
 import sys
 
 IP = sys.argv[1]
-PORT = 8000
+PORT = int(sys.argv[2])
 
 class VideoStreamHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):

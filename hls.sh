@@ -2,12 +2,12 @@
 
 #take your IP as an input
 IP=$1
-
+PORT=$2
 # 1. start your http camera server, then
 
 # 2. Run ffmpeg to create the HLS files
 
-ffmpeg -i "http://$IP:8000" -y \
+ffmpeg -i "http://$IP:$PORT" -y \
 -c:v libx264 \
 -preset veryfast \
 -profile:v baseline \
