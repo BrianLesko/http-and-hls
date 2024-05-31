@@ -21,15 +21,16 @@
     <script src="node_modules/hls.js/dist/hls.min.js"></script> <!-- Local hls.js file -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> --> <!-- CDN hls.js file -->
     <script>
-      var myVar = 'PLACEHOLDER';
-      var myPath = 'http://${myVar}/hls/index.m3u8'
+      const IP = '192.168.129.60';
+      const PORT = '8001';
+      var myPath = 'http://' + IP + ':' + PORT + '/hls/index.m3u8';
       if (Hls.isSupported()) {
         var video = document.getElementById('video');
         var hls = new Hls();
         hls.attachMedia(video);
         hls.on(Hls.Events.MEDIA_ATTACHED, function () {
           console.log("video and hls.js are now bound together !");
-          hls.loadSource("http://192.168.129.60:8001/hls/index.m3u8");
+          hls.loadSource(myPath);
           hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
             console.log("manifest loaded, found " + data.levels.length + " quality level");
             video.currentTime = video.duration;
