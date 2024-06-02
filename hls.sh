@@ -11,12 +11,12 @@ ffmpeg -i "http://$IP:$PORT" -y \
 -c:v libx264 \
 -preset veryfast \
 -profile:v baseline \
--hls_time 3 \
--hls_list_size 3 \
+-hls_time 2 \
+-hls_list_size 3000 \
 -hls_flags delete_segments \
 -hls_start_number_source datetime \
 -hls_segment_filename "./hls/file%d.ts" \
--force_key_frames "expr:gte(t,n_forced*3)" \
+-force_key_frames "expr:gte(t,n_forced*2)" \
 -f hls ./hls/index.m3u8
 
 # 3. serve the HLS content on a web server

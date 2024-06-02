@@ -17,11 +17,15 @@ class VideoStreamHandler(http.server.BaseHTTPRequestHandler):
         self.send_header('Content-type', 'multipart/x-mixed-replace; boundary=frame')
         self.end_headers()
 
-        cap = cv2.VideoCapture(0)
+        camera = cv2.VideoCapture(0)
+        camera.set(cv2.CAP_PROP_FPS, 35) # FPS
+        camera.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
+        camera.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
+        camera.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'MJPG')) # compression method
 
         try:
             while True:
-                ret, frame = cap.read()
+                ret, frame = camera.read()
                 if not ret:
                     break
 
@@ -36,7 +40,7 @@ class VideoStreamHandler(http.server.BaseHTTPRequestHandler):
         except Exception as e:
             print("Stream stopped:", e)
         finally:
-            cap.release()
+            camera.release()
 
 Handler = VideoStreamHandler
 with http.server.ThreadingHTTPServer((IP, PORT), Handler) as httpd:
