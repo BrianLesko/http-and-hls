@@ -19,13 +19,32 @@ npm install hls.js
 
 &nbsp;
 
+## Setup
+1. create a python virtual environment using venv, activate it, make sure the python requirements are downloaded
+```
+python3 -m venv my_env
+source my_env/bin/activate
+pip install -r requirements.txt
+```
+
+2. install the javascript dependency with 
+```
+npm install
+```
+
 ## Usage
-1. Run your http live camera feed, and get its url
-    If you need code to host a http live camera feed look [here](https://github.com/BrianLesko/http-camera-server-python)
-2. replace the URL in start.sh with your live camera url
-3. run the ffmpeg command in start.sh
-4. run the nginx server with the commands in start_docker.sh
-5. view the web stream at http://localhost:8080
+1. Pick the scope of where you'll serve the video.
+
+a. local network. You want your video accessible my the local area network (wifi or wired).
+set the IP in start.sh to 0.0.0.0
+
+b. local only, on your device
+set the IP in start.sh to 127.0.0.1
+
+2. run start.sh
+```
+./start.sh
+```
 
 &nbsp;
 
