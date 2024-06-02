@@ -31,10 +31,10 @@ npm install
 ## Usage
 1. Pick the scope of where you'll serve the video.
 
-    a. local network. You want your video accessible my the local area network (wifi or wired).
+    a. local network. You want your video accessible my the local area network (wifi or wired).  
         set the IP in start.sh to 0.0.0.0
 
-    b. local only, on your device
+    b. local only, on your device  
         set the IP in start.sh to 127.0.0.1
 
 2. run start.sh
