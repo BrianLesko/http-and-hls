@@ -1,9 +1,7 @@
 
 # HLS stream from http stream
 
-Stream a camera and its sliding window history via HLS, optimized for <10 seconds latency.
-
-Change how much footage youd like to save. Change the size of video chunks used.
+Stream a camera and its sliding window history. This method has around 10 seconds of latency 
 
 &nbsp;
 
@@ -11,15 +9,13 @@ Change how much footage youd like to save. Change the size of video chunks used.
 
 This code uses the following libraries:
 - `ffmpeg`: for handling the live stream to video chunking HLS protocol
-- `docker`: for serving the generated files and hosting the html viewer with nginx
 - `hls.js`: for serving the index.m3u8 file using html 5
-```bash
-npm install hls.js
-```
+- `opencv`: for the video capture device
 
 &nbsp;
 
 ## Setup
+
 1. create a python virtual environment using venv, activate it, make sure the python requirements are downloaded
 ```
 python3 -m venv my_env
@@ -50,7 +46,7 @@ set the IP in start.sh to 127.0.0.1
 
 ## About
 
-HLS streaming was introduced by Apple and since its creation has been one of the most popular ways to stream video. It allows adaptive quality and low latency. The setup here is more cumbersome than a simple http live server, but allows viewing the history of the stream and allows the client to buffer content. Written by Brian Lesko for learning purposes. For other software projects related to robotics engineering, mechanical engineering, and software engineering see my other repositories. 
+HLS streaming was introduced by Apple and since its creation has been one of the most popular ways to stream video. It allows adaptive quality and low latency. The setup here is more cumbersome than a simple http live server, but allows viewing the history of the stream and allows the client to buffer content. Written by Brian Lesko for learning purposes. For other software projects related to robotics engineering, mechanical engineering, and software engineering see my other repositories. Currently working as a robotics engineer - 2024. 
 
 &nbsp;
 
