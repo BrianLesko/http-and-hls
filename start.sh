@@ -16,7 +16,7 @@ cd $(dirname "$0")    # Change to the directory of this script
 source my_env/bin/activate # activate the python environment
 python3 start_http.py $IP $PORT $CAMERA & # start a http server with live video feed from video device 0
 sleep 5     # wait for the server to start
-./hls.sh $IP $PORT $&        # start the hls server in the background, saves .ts files in ./hls
+./hls.sh $IP $PORT $CAMERA &        # start the hls server in the background, saves .ts files in ./hls
 cp ./index_template.html ./index.html   # copy the template file to index.html
 sed "s/%%IP%%/$IP/g; s/%%PORT%%/$PORT2/g" ./index.html > ./index_temp.html # replace the placeholders in the template file
 mv ./index_temp.html ./index.html  # move the modified file back to index.html
