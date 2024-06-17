@@ -10,6 +10,7 @@ import sys
 
 IP = sys.argv[1]
 PORT = int(sys.argv[2])
+CAMERA = int(sys.argv[3])
 
 class VideoStreamHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
@@ -17,7 +18,7 @@ class VideoStreamHandler(http.server.BaseHTTPRequestHandler):
         self.send_header('Content-type', 'multipart/x-mixed-replace; boundary=frame')
         self.end_headers()
 
-        camera = cv2.VideoCapture(0)
+        camera = cv2.VideoCapture(CAMERA)
         camera.set(cv2.CAP_PROP_FPS, 35) # FPS
         camera.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
         camera.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
