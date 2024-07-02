@@ -10,7 +10,7 @@ PORT=$2
 # 3. make sure there is a directory to save the stream files
 CAMERA=$3
 DIR="./hls$CAMERA"
-#mkdir -p "$DIR"
+mkdir -p "$DIR"
 
 ffmpeg -i "http://$IP:$PORT" -y \
 -c:v libx264 \
