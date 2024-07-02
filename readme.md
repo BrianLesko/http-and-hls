@@ -3,6 +3,8 @@
 
 Stream a camera and its sliding window history. This method has around 10 seconds of latency 
 
+access via 127.0.0.1 or CORS policy prevents access
+
 &nbsp;
 
 ## Dependencies
