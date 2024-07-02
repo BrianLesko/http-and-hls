@@ -11,7 +11,9 @@
     <script>
       const IP = '%%IP%%';
       const PORT = '%%PORT%%';
-      var myPath = 'http://' + IP + ':' + PORT + '/hls/index.m3u8';
+      const CAMERA = '%%CAMERA%%';
+      var PATH2 = '/hls' + CAMERA + '/index.m3u8';
+      var myPath = 'http://' + IP + ':' + PORT + PATH2;
       if (Hls.isSupported()) {
         var video = document.getElementById('video');
         var hls = new Hls();

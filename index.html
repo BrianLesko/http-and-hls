@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Live Video Feed</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <video id="video" autoplay="true" controls="controls"></video>
+    <script src="./node_modules/hls.js/dist/hls.min.js"></script> <!-- Local hls.js file -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> --> <!-- CDN hls.js file -->
+    <script>
+      const IP = '127.0.0.1';
+      const PORT = '8001';
+      const CAMERA = '0';
+      var PATH2 = '/hls' + CAMERA + '/index.m3u8';
+      var myPath = 'http://' + IP + ':' + PORT + PATH2;
+      if (Hls.isSupported()) {
+        var video = document.getElementById('video');
+        var hls = new Hls();
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MEDIA_ATTACHED, function () {
+          console.log("video and hls.js are now bound together !");
+          hls.loadSource(myPath);
+          hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+            console.log("manifest loaded, found " + data.levels.length + " quality level");
+            video.currentTime = video.duration;
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
